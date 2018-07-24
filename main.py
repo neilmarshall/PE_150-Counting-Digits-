@@ -108,7 +108,7 @@ def f(n, d):
         return 1 if d == 0 else 0
     s = 0
     for i in range(int(log10(n)) + 1):
-        s1 = 1 + (n + 10**i * (10 - d)) % 10**(i + 1)
+        s1 = 1 + (n - 10**i * d) % 10**(i + 1)
         adjustment = 10**i * (10 - d) if d > 0 else 0
         s2 = (n + adjustment) // 10**(i + 1)
         s += max(min(s1, 10**i) * (s2 > 0) + 10**i * (s2 - 1), 0)
